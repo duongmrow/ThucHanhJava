@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <title>Kết Quả</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #ff6347; /* Tomato */
+            text-align: center;
+        }
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .table-striped tbody tr:hover {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 th:text="${message}"></h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Tuổi</th>
+            <th>Khoa</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="sinhVien : ${sinhVienList}">
+            <td th:text="${sinhVien.ten}">Tên</td>
+            <td th:text="${sinhVien.tuoi}">Tuổi</td>
+            <td th:text="${sinhVien.khoa}">Khoa</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
